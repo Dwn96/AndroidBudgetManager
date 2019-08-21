@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@android:color/holo_orange_light">
+
+    <EditText
+        android:hint="Enter Amount in Ksh"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/amtTxt"
+        android:layout_marginBottom="50dp"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/categorySpin"
+        android:layout_marginBottom="50dp"
+
+
+        />
+
+    <EditText
+        android:hint="Optional Description"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:id="@+id/optDesc"/>
+
+    <EditText
+        android:hint="Date Money Spent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/expenseDate"
+        android:focusable="false"
+        android:clickable="true"
+        android:inputType="date"
+        android:layout_marginBottom="50dp"
+        />
+
+
+    <Button
+
+        android:id="@+id/btnSaveExp"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:text="Save"
+        />
+
+
+</LinearLayout>

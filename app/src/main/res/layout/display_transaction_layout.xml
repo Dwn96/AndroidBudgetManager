@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisplayTransaction"
+    android:background="@android:color/holo_orange_light">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:id="@+id/header">
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Amount"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Type"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/display_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        tools:visibility="visible"
+        android:layout_below="@id/header"
+        android:divider="#000000"
+        android:dividerHeight="1dp">
+
+
+    </ListView>
+
+    <ListView
+        android:id="@+id/display_listviewExp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        tools:visibility="visible"
+        android:layout_below="@id/display_listview"
+        android:divider="#000000"
+        android:dividerHeight="1dp">
+
+
+    </ListView>
+    
+</RelativeLayout>
