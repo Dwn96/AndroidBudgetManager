@@ -78,4 +78,28 @@ public class ExpenseDatabaseHelper extends SQLiteOpenHelper {
         }
         return Transactionlist;
     }
+
+    public ArrayList<String> queryXData(){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        ArrayList<String> xNewData = new ArrayList<String>();
+        String query = "SELECT " + COL3 + " FROM " + TABLE_NAME;
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            xNewData.add(cursor.getString(cursor.getColumnIndex(COL3)));
+        }
+        cursor.close();
+        return xNewData;
+    }
+
+    public ArrayList<Float> queryYData(){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        ArrayList<Float> yNewData = new ArrayList<Float>();
+        String query = "SELECT " + COL2 + " FROM " + TABLE_NAME;
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            yNewData.add(cursor.getFloat(cursor.getColumnIndex(COL2)));
+        }
+        cursor.close();
+        return yNewData;
+    }
 }

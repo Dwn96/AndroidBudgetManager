@@ -24,6 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -83,23 +85,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return Transcationlist;
     }
 
-    public ArrayList<Transaction> getAmount() {
-        ArrayList<Transaction> Transcationlist = new ArrayList<>();
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT * from table where 0",null);
-
-        while(res.moveToNext()) {
-            //String id = res.getString(0);   //0 is the number of id column in your database table
-            String amount = res.getString(1);
-            String incomeType = res.getString(2);
-            String desc = res.getString(3);
-            String date = res.getString(4);
-
-            Transaction newTransaction = new Transaction(incomeType,desc, date, amount);
-            Transcationlist.add(newTransaction);
+    public ArrayList<String> queryXData(){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        ArrayList<String> xNewData = new ArrayList<String>();
+        String query = "SELECT " + COL3 + " FROM " + TABLE_NAME;
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            xNewData.add(cursor.getString(cursor.getColumnIndex(COL3)));
         }
-        return Transcationlist;
+        cursor.close();
+        return xNewData;
     }
+
+    public ArrayList<Float> queryYData(){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        ArrayList<Float> yNewData = new ArrayList<Float>();
+        String query = "SELECT " + COL2 + " FROM " + TABLE_NAME;
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            yNewData.add(cursor.getFloat(cursor.getColumnIndex(COL2)));
+        }
+        cursor.close();
+        return yNewData;
+    }
+
 
 
 
