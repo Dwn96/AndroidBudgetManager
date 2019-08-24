@@ -99,6 +99,7 @@ public class GenerateReports extends Activity {
         barChart.setDescription("The income chart.");
         barChart.animateY(2000);
 
+
     }
 
 
