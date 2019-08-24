@@ -26,10 +26,12 @@
         <activity
             android:name=".AddExpense"
             android:label="Expense Manager" />
+        <activity
+            android:name=".GenerateReports"
+            android:label="Generate Reports" />
 
-        <activity android:name=".GenerateReports"
-            android:label="Generate Reports"/>
-
+        <activity android:name=".ExpenseBarGraph"
+            android:label="Expense Bar Graph "/>
     </application>
 
 </manifest>

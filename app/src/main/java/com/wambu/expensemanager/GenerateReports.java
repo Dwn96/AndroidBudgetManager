@@ -1,12 +1,14 @@
 package com.wambu.expensemanager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -33,13 +35,9 @@ public class GenerateReports extends Activity {
     BarChart barChart;
 
 
-/*
-    float[] rainfall = {98.8f, 123.8f, 13.8f, 66.8f, 23.4f, 46.4f, 23.8f, 113.8f, 46.8f, 23.8f, 113.8f, 46.8f};
-    String[] monthNames={"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"};
+    
 
-//String[] amounts= columnValues();
 
-*/
 
 
 
@@ -67,6 +65,25 @@ public class GenerateReports extends Activity {
         return true;
     }
 
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch (item.getItemId()){
+
+            case R.id.nav_expbar:
+                Intent intent=new Intent(this,ExpenseBarGraph.class);
+                this.startActivity(intent);
+                break;
+
+
+
+        }
+
+
+
+
+
+return super.onOptionsItemSelected(item);
+    }
 
 
     private void addData(){
@@ -82,21 +99,21 @@ public class GenerateReports extends Activity {
         for(int i = 0; i < databaseHelper.queryXData().size(); i++)
             xVals.add(databaseHelper.queryXData().get(i));
 
-        BarDataSet dataSet = new BarDataSet(yVals, "expense values");
+        BarDataSet dataSet = new BarDataSet(yVals, "income values");
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
 
 
         BarData data = new BarData(xVals, dataSet);
 
 
-        LimitLine line = new LimitLine(12f, "average daily expense");
+        LimitLine line = new LimitLine(12f, "Incomes");
         line.setTextSize(12f);
         line.setLineWidth(4f);
         YAxis leftAxis = barChart.getAxisLeft();
         leftAxis.addLimitLine(line);
 
         barChart.setData(data);
-        barChart.setDescription("The income chart.");
+        barChart.setDescription("The income bar chart.");
         barChart.animateY(2000);
 
 
